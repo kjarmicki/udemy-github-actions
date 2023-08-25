@@ -1,10 +1,12 @@
 name: Events Demo 1
 on:
   pull_request:
+    # some events have sub-types
     types:
       - opened
   workflow_dispatch:
   push:
+    # all events have filters
     branches:
       - master
 jobs:
