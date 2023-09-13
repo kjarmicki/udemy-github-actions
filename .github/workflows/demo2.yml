@@ -6,6 +6,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -24,6 +27,9 @@ jobs:
   build:
     needs: test # dependency between jobs
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     outputs:
       script-file: ${{ steps.publish.outputs.script-file }}
     steps:
@@ -50,6 +56,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Output JS filename
         run: echo "${{ needs.build.outputs.script-file }}"

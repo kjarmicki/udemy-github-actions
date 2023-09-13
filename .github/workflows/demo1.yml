@@ -12,6 +12,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Output event data
         run: echo "${{ toJSON(github) }}"

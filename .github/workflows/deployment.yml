@@ -3,6 +3,9 @@ on: workflow_dispatch
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -19,6 +22,9 @@ jobs:
   deploy:
     needs: lint-and-test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Get code
         uses: actions/checkout@v3
