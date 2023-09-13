@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: client
+        working-directory: ./client
     steps:
       - name: Output JS filename
         run: echo "${{ needs.build.outputs.script-file }}"
