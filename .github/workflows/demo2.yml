@@ -52,13 +52,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist-files
-          path: dist
+          path: client/dist
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./client
     steps:
       - name: Output JS filename
         run: echo "${{ needs.build.outputs.script-file }}"
