@@ -12,7 +12,7 @@ jobs:
     env:
       MONGODB_CLUSTER_ADDRESS: http://localhost:27017
       MONGODB_USER_NAME: user
-      MONGODB_PASSWORD: pass
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
