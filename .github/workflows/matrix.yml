@@ -8,6 +8,12 @@ jobs:
         # matrix strategy means job is executed for each permutation of keys below
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest]
+        include: # include is a special key that is not treated as a matrix combination but rather as a additional run
+          - node-version: 18
+            operating-system: ubuntu-latest
+        exclude: # exclude is a special key that skips execution for the particular combination
+          - node-version: 12
+            operating-system: windows-latest
     runs-on: ${{ matrix.operating-system }}
     defaults:
       run:
