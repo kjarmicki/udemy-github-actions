@@ -2,9 +2,10 @@ name: Matrix Demo
 on: push
 jobs:
   build:
-    continue-on-error: true
+    continue-on-error: true # this will make github continue executing jobs related to the matrix even if some others failed
     strategy:
       matrix:
+        # matrix strategy means job is executed for each permutation of keys below
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.operating-system }}
