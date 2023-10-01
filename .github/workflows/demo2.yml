@@ -23,6 +23,7 @@ jobs:
         if: steps.cache.outputs.cache-hit != true
         run: npm ci
       - name: Lint code
+        continue-on-error: true # continue executing job even if linting failed, the overall job will be marked as successful
         run: npm run lint
       - name: Test code
         id: run-tests
