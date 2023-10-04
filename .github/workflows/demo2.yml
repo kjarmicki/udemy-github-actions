@@ -80,6 +80,9 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  reusable_deploy:
+    needs: build
+    uses: ./.github/workflows/reusable.yml
   report:
     if: failure()
     needs: [build, deploy]
