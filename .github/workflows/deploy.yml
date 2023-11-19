@@ -11,8 +11,9 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: localhost
-      MONGODB_USER_NAME: root
+      MONGODB_USERNAME: root
       MONGODB_PASSWORD: example
+      MONGODB_DB_NAME: db
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
@@ -22,8 +23,9 @@ jobs:
       mongodb:
         image: mongo
         env:
-          MONGODB_INITDB_ROOT_USERNAME: root
-          MONGODB_INITDB_ROOT_PASSWORD: example
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
+          MONGO_INITDB_DATABASE: db
     defaults:
       run:
         working-directory: server
