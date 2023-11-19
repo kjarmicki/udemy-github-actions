@@ -11,13 +11,19 @@ jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: http://localhost:27017
-      MONGODB_USER_NAME: user
-      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_USER_NAME: root
+      MONGODB_PASSWORD: example
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
     container:
       image: node:16
+    services:
+      mongodb:
+        image: mongo
+        env:
+          MONGODB_INITDB_ROOT_USERNAME: root
+          MONGODB_INITDB_ROOT_PASSWORD: example
     defaults:
       run:
         working-directory: server
