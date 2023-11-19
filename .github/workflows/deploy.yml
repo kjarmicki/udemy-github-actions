@@ -16,6 +16,8 @@ jobs:
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
+    container:
+      image: node:16
     defaults:
       run:
         working-directory: server
